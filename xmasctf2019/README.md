@@ -9,6 +9,7 @@ It was also my first CTF! I played solo and was pretty happy with my results, en
 While "Lapland Mission" and "Emu 2.0" were some of my favorite challenges, I've chosen writeups that were interesting or difficult to share. Hope you enjoy!
 
 - [Robin's Wish [Crypto, 119 points]](crypto/robins_wish/README.md)
+- [45 Shades of Christmas [Misc, 280 points]](misc/45shades/README.md)
 
 # Score
 
