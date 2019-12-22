@@ -48,7 +48,7 @@ Eventually I typed in a number and started piecing it together.
 <Krampus>: ['l', 'i', 's', 't', '(', 'i', 'n', 'p', ')']
 ```
 
-When you type in an invalid character, the server will have some Elf, Golem, Ice Dragon, or Krampus say something instead of executing your command. Disallowed characters include `'"_+.`, but you can use parentheses to call functions and nest them. Finally, `inp` is a string that copies your input right before it is executed.  My first approach was to try to create a string just like last year's solutions were able to do, and perhaps even call `eval(inp)`, but it was hard to get too far:
+When you type in an invalid character, the server will have some Elf, Golem, Ice Dragon, or Krampus say something instead of executing your command. Disallowed characters include `'"_+.,`, but you can use parentheses to call functions and nest them. Finally, `inp` is a string that copies your input right before it is executed.  My first approach was to try to create a string just like last year's solutions were able to do, and perhaps even call `eval(inp)`, but it was hard to get too far:
 
 ```
 <You>: next(iter(dir()))   
