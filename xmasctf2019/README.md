@@ -10,6 +10,8 @@ While "Lapland Mission" and "Emu 2.0" were some of my favorite challenges, I've 
 
 - [Robin's Wish [Crypto, 119 points]](crypto/robins_wish/README.md)
 - [45 Shades of Christmas [Misc, 280 points]](misc/45shades/README.md)
+- [Krampus' Return [Misc, 349 points]](misc/krampus_return/README.md)
+- [Ancient Christmas [PPC, 445 points]]
 
 # Score
 
