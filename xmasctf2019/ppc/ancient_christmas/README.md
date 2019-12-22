@@ -52,7 +52,11 @@ def load_image(filename):
 	return im, points
 ```
 
-This worked better than I expected, and this code didn't really change in my final solution. I also had a small function that would extract a 63x63 "patch" of the image, centered around the center of the bounding rectangle:
+This worked better than I expected, and this code didn't really change in my final solution. 
+
+![Bounding Rectangles](images/bounding_rectangles.png)
+
+I also had a small function that would extract a 63x63 "patch" of the image, centered around the center of the bounding rectangle:
 
 ```
 for x, y in points:
@@ -64,6 +68,49 @@ Unfortunately, my attempts to do template comparison failed horribly. I tried us
 ## Approach #2: Have a CNN Memorize the Dataset
 
 I already had scripts that were creating 63x63 challenge images, now I just needed to save them. I started farming images from the challenges and labeling hundreds of them by hand. I then [copied code](https://www.analyticsvidhya.com/blog/2019/01/build-image-classification-model-10-minutes/) to train a CNN with Keras and started using my model for predictions.
+
+```
+def get_train_files():
+	train_files = []
+	for filename in os.listdir('images/'):
+		if '_' not in filename:
+			continue
+		label = filename.split('_')[0]
+		train_files.append((filename, label))
+
+	return train_files
+
+
+def train():
+	train_files = get_train_files()
+	train_image = []
+	for i in range(len(train_files)):
+	    img = image.load_img('images/' + train_files[i][0], target_size=(63,63,1), grayscale=True)
+	    img = image.img_to_array(img)
+	    img = img/255
+	    train_image.append(img)
+
+	X = np.array(train_image)
+	y=pd.Series([t[1] for t in train_files])
+	y = to_categorical(y)
+
+	X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, test_size=0.2)
+
+	model = Sequential()
+	model.add(Conv2D(32, kernel_size=(3, 3),activation='relu',input_shape=(63,63,1)))
+	model.add(Conv2D(64, (3, 3), activation='relu'))
+	model.add(MaxPooling2D(pool_size=(2, 2)))
+	model.add(Dropout(0.25))
+	model.add(Flatten())
+	model.add(Dense(128, activation='relu'))
+	model.add(Dropout(0.5))
+	model.add(Dense(6, activation='softmax'))
+
+	model.compile(loss='categorical_crossentropy',optimizer='Adam',metrics=['accuracy'])
+
+	model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test))
+	model.save('model.hdf5')
+```
 
 It didn't quite work. The training accuracy was 97% but the images the model hadn't learned were still causing me to fail enough challenges. The model was overfitting to duplicate images that I was farming multiple times over. Luckily, my Setapp subscription gives me access to a file deduplication app called [Gemini](https://macpaw.com/gemini), which I pointed at my image folder to clean out the extras. I was surprised to find that the set of images was fairly small:
 
