@@ -1,4 +1,4 @@
-# Problem
+# Problem [Crypto, 119 Points]
 
 > Santa tried using public key cryptography to secure his letters, but his plan turned out to be a failure! After deleting his private keys, one of his elves found an encrypted letter from a child named Robin. Asking Robin what he wants for Christmas would be unprofessional, so the elf asked you to decrypt the letter. He also gave you access to a more basic copy of Santa's service.
 > 
