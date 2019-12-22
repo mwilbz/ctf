@@ -6,9 +6,8 @@ This time I played on a friend's team, Me&The_Boyz_R_Ready2Hack and we finished 
 
 # Writeups
 
-Just one writeup this time, the only solve I spentn a significant amount of time on.
-
 - [Curve It Up [Crypto, 266 points]](crypto/curve_it_up/README.md)
+- [Readlly Good (B)icture [Misc, 189 points]](misc/really_good_bicture/README.md)
 
 # Score
 
