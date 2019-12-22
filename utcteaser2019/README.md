@@ -8,7 +8,7 @@ This time I played on a friend's team, Me&The_Boyz_R_Ready2Hack and we finished 
 
 Just one writeup this time, the only solve I spentn a significant amount of time on.
 
-- [Robin's Wish [Crypto, 119 points]](crypto/robins_wish/README.md)
+- [Curve It Up [Crypto, 266 points]](crypto/curve_it_up/README.md)
 
 # Score
 
